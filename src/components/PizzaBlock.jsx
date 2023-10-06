@@ -1,4 +1,3 @@
-import { type } from '@testing-library/user-event/dist/type';
 import { useState } from 'react';
 
 function PizzaBlock({ title, price, imageUrl, types, sizes, category, rating }) {
@@ -14,9 +13,9 @@ function PizzaBlock({ title, price, imageUrl, types, sizes, category, rating }) 
       <h4 className='pizza-block__title'>{title}</h4>
       <div className='pizza-block__selector'>
         <ul>
-          {types.map((type, i) => (
+          {types.map((type) => (
             <li
-              key={i}
+              key={type}
               onClick={() => setPizzaType(type)}
               className={pizzaType === type ? 'active' : ''}>
               {pizzaTypes[type]}
