@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function PizzaBlock({ title, price, imageUrl, types, sizes, category, rating }) {
   const [pizzaCount, setPizzaCount] = useState(0);
@@ -6,6 +6,11 @@ function PizzaBlock({ title, price, imageUrl, types, sizes, category, rating }) 
   const [pizzaType, setPizzaType] = useState(0);
 
   const pizzaTypes = ['тонкое', 'традиционное'];
+  
+
+  useEffect(() => {
+    setPizzaType(types[0]);
+  }, []);
 
   return (
     <div className='pizza-block-wrapper'>
@@ -36,7 +41,7 @@ function PizzaBlock({ title, price, imageUrl, types, sizes, category, rating }) 
           </ul>
         </div>
         <div className='pizza-block__bottom'>
-          <div className='pizza-block__price'>от {price}</div>
+          <div className='pizza-block__price'>от {price} ₽</div>
           <button
             onClick={() => setPizzaCount(pizzaCount + 1)}
             className='button button--outline button--add'>
