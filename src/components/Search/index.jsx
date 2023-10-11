@@ -1,11 +1,13 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+import { SearchContext } from '../../App';
 
 import styles from './Search.module.scss';
 
 import searchIcon from '../../assets/img/searchIcon.svg';
 import clearIcon from '../../assets/img/clearIcon.svg';
 
-const Search = ({ searchValue, setSearchValue }) => {
+const Search = () => {
+  const { searchValue, setSearchValue } = useContext(SearchContext);
   const inputRef = useRef(null);
 
   const onClear = () => {
