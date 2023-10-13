@@ -1,6 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { SearchContext } from '../App';
 
+import { setCategoryId } from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
@@ -8,22 +11,29 @@ import PizzaSkeleton from '../components/PizzaBlock/Skeleton';
 import Pagination from '../components/Pagination';
 
 const Home = () => {
-  const { searchValue } = useContext(SearchContext);
+  const dispatch = useDispatch();
+  const { categoryId, sort } = useSelector((state) => state.filter);
+  const sortType = sort.sortProperty;
 
+  const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategoryId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [activeSort, setActiveSort] = useState({ name: 'популярности  🠟', sortProperty: 'rating' });
+
+  const onChangeCategory = (id) => {
+    dispatch(setCategoryId(id));
+  };
 
   useEffect(() => {
     setIsLoading(true);
 
     const category = categoryId !== 0 ? `category=${categoryId}` : '';
-    const sort = `&sortBy=${activeSort.sortProperty.replace('-', '')}`;
-    const order = `&order=${activeSort.sortProperty.includes('-') ? 'asc' : 'desc'}`;
+    const sort = `&sortBy=${sortType.replace('-', '')}`;
+    const order = `&order=${sortType.includes('-') ? 'asc' : 'desc'}`;
 
-    fetch(`https://65200797906e276284c3eccc.mockapi.io/items?page=${currentPage}&limit=8&${category}${sort}${order}`)
+    fetch(
+      `https://65200797906e276284c3eccc.mockapi.io/items?page=${currentPage}&limit=8&${category}${sort}${order}`,
+    )
       .then((res) => res.json())
       .then((json) => {
         setItems(json);
@@ -31,7 +41,7 @@ const Home = () => {
       })
       .catch((err) => console.log(err));
     window.scrollTo(0, 0);
-  }, [categoryId, activeSort, currentPage]);
+  }, [categoryId, sortType, currentPage]);
 
   const skeletons = [...new Array(8)].map((_, i) => <PizzaSkeleton key={i} />);
   const pizzas = items
@@ -43,12 +53,12 @@ const Home = () => {
   return (
     <div className='container'>
       <div className='content__top'>
-        <Categories category={categoryId} onClickCategory={(id) => setCategoryId(id)} />
-        <Sort activeSort={activeSort} onChangeSort={(id) => setActiveSort(id)} />
+        <Categories category={categoryId} onClickCategory={onChangeCategory} />
+        <Sort />
       </div>
       <h2 className='content__title'>Все пиццы</h2>
       <div className='content__items'>{isLoading ? skeletons : pizzas}</div>
-      <Pagination onChangePage={number => setCurrentPage(number)} />
+      <Pagination onChangePage={(number) => setCurrentPage(number)} />
     </div>
   );
 };
