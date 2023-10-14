@@ -1,9 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
 
 import { SearchContext } from '../App';
 
-import { setCategoryId } from '../redux/slices/filterSlice';
+import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
@@ -12,13 +13,12 @@ import Pagination from '../components/Pagination';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { categoryId, sort } = useSelector((state) => state.filter);
+  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
   const sortType = sort.sortProperty;
 
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
@@ -30,25 +30,27 @@ const Home = () => {
     const category = categoryId !== 0 ? `category=${categoryId}` : '';
     const sort = `&sortBy=${sortType.replace('-', '')}`;
     const order = `&order=${sortType.includes('-') ? 'asc' : 'desc'}`;
+    const search = searchValue ? `&search=${searchValue}` : '';
 
-    fetch(
-      `https://65200797906e276284c3eccc.mockapi.io/items?page=${currentPage}&limit=8&${category}${sort}${order}`,
-    )
-      .then((res) => res.json())
-      .then((json) => {
-        setItems(json);
+    axios
+      .get(
+        `https://65200797906e276284c3eccc.mockapi.io/items?page=${currentPage}&limit=8&${category}${sort}${order}${search}`,
+      )
+      .then((res) => {
+        setItems(res.data);
         setIsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error('429 (Too Many Requests)'));
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, currentPage]);
+  }, [categoryId, sortType, currentPage, searchValue]);
 
   const skeletons = [...new Array(8)].map((_, i) => <PizzaSkeleton key={i} />);
-  const pizzas = items
-    .filter((obj) => {
-      return obj.title.toLowerCase().includes(searchValue.toLowerCase());
-    })
-    .map((obj) => <PizzaBlock key={obj.id} {...obj} />);
+  const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />);
+
+  const onChangePage = (number) => {
+    dispatch(setCurrentPage(number));
+    setCurrentPage(number);
+  };
 
   return (
     <div className='container'>
@@ -58,7 +60,7 @@ const Home = () => {
       </div>
       <h2 className='content__title'>Все пиццы</h2>
       <div className='content__items'>{isLoading ? skeletons : pizzas}</div>
-      <Pagination onChangePage={(number) => setCurrentPage(number)} />
+      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
 };

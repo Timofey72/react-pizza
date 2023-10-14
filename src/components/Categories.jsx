@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 function Categories({ category, onClickCategory }) {
   const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Грибные'];
 

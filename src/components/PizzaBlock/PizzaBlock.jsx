@@ -1,17 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-function PizzaBlock({ title, price, imageUrl, types, sizes, category, rating }) {
+function PizzaBlock({ title, price, imageUrl, types, sizes }) {
   const [pizzaCount, setPizzaCount] = useState(0);
   const [pizzaSize, setPizzaSize] = useState(0);
-  const [pizzaType, setPizzaType] = useState(0);
+  const [pizzaType, setPizzaType] = useState(types[0]);
 
   const pizzaTypes = ['тонкое', 'традиционное'];
   
-
-  useEffect(() => {
-    setPizzaType(types[0]);
-  }, []);
-
   return (
     <div className='pizza-block-wrapper'>
       <div className='pizza-block'>
