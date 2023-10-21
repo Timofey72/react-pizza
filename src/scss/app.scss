@@ -30,6 +30,25 @@ body {
     font-size: 35px;
   }
 
+  &__error-info {
+    text-align: center;
+    margin: 100px 0;
+
+    p {
+      font-size: 18px;
+    }
+
+    @media (max-width: 346px) {
+      h2 {
+        font-size: 22px;
+      }
+      
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
   &__items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
