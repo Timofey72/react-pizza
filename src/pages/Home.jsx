@@ -1,12 +1,10 @@
-import { useState, useEffect, useContext, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
 
-import { SearchContext } from '../App';
-
-import { setCategoryId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
-import { fetchPizzas } from '../redux/slices/pizzaSlice';
+import { selectFilter, selectSearchValue, setCategoryId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
+import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 import Categories from '../components/Categories';
 import Sort, { sortBy } from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
@@ -19,12 +17,11 @@ const Home = () => {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const { items, status } = useSelector((state) => state.pizza);
-  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
+  const { items, status } = useSelector(selectPizzaData);
+  const searchValue = useSelector(selectSearchValue);
+  const { categoryId, sort, currentPage } = useSelector(selectFilter);
   const sortType = sort.sortProperty;
-
-  const { searchValue } = useContext(SearchContext);
-
+  
   const skeletons = [...new Array(8)].map((_, i) => <PizzaSkeleton key={i} />);
   const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />);
 
