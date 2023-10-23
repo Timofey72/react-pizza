@@ -1,0 +1,40 @@
+.root {
+  text-align: center;
+}
+
+.image {
+  width: 300px;
+
+  @media(max-width: 370px) {
+    width: 240px;
+  }
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  @media(max-width: 370px) {
+    font-size: 32px;
+  }
+}
+
+.price {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.button {
+  margin-top: 30px;
+  width: 160px;
+  height: 50px;
+  border-radius: 30px;
+  border: 0px;
+  background-color: #fe5f1e;
+  color: white;
+  font-size: 16px;
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #f24701;
+  }
+}
