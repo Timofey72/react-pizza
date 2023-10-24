@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -6,16 +6,20 @@ import NotFound from '../NotFound';
 
 import styles from './SinglePizza.module.scss';
 
-const SinglePizza = () => {
-  const [pizza, setPizza] = useState();
-  const [error, isError] = useState(false);
+const SinglePizza: React.FC = () => {
+  const [pizza, setPizza] = useState<{
+    imageUrl: string;
+    title: string;
+    price: number;
+  }>();
+  const [error, isError] = useState<boolean>(false);
   const { id } = useParams();
 
   useEffect(() => {
     async function getPizzaData() {
       try {
         const { data } = await axios.get(`https://65200797906e276284c3eccc.mockapi.io/items/${id}`);
-        setPizza(data);
+       setPizza(data);
       } catch (error) {
         isError(true);
       }
