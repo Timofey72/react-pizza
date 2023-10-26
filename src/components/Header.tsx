@@ -7,7 +7,7 @@ import Search from './Search';
 import logo from '../assets/img/pizza-logo.svg';
 import { selectCart } from '../redux/slices/cartSlice';
 
-function Header() {
+const Header: React.FC = () => {
   const { items, totalPrice } = useSelector(selectCart);
 
   const count = items.reduce((sum: number, item: any) => sum + item.count, 0);

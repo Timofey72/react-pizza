@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { selectSort, setSort } from '../redux/slices/filterSlice';
@@ -17,7 +17,7 @@ export const sortBy: SortItem[] = [
   { name: 'алфавиту 🠝', sortProperty: '-title' },
 ];
 
-function Sort() {
+const Sort: React.FC = () => {
   const dispatch = useDispatch();
   const sort = useSelector(selectSort);
   const sortRef = useRef<HTMLDivElement>(null);
@@ -30,8 +30,10 @@ function Sort() {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      !event.composedPath().includes(sortRef.current) && setOpen(false);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sortRef.current && !event.composedPath().includes(sortRef.current)) {
+        setOpen(false);
+      }
     };
     document.body.addEventListener('click', handleClickOutside);
 
