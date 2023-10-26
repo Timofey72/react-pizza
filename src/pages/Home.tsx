@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
@@ -17,7 +17,7 @@ import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import PizzaSkeleton from '../components/PizzaBlock/Skeleton';
 import Pagination from '../components/Pagination';
 
-const Home = () => {
+const Home: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSearch = useRef(false);
@@ -29,15 +29,15 @@ const Home = () => {
   const sortType = sort.sortProperty;
 
   const skeletons = [...new Array(8)].map((_, i) => <PizzaSkeleton key={i} />);
-  const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />);
+  const pizzas = items.map((obj: any) => <PizzaBlock key={obj.id} {...obj} />);
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  const onChangePage = (number) => {
-    dispatch(setCurrentPage(number));
-    setCurrentPage(number);
+  const onChangePage = (page: number) => {
+    dispatch(setCurrentPage(page));
+    setCurrentPage(page);
   };
 
   const getPizzas = async () => {
@@ -45,7 +45,7 @@ const Home = () => {
     const sort = `&sortBy=${sortType.replace('-', '')}`;
     const order = `&order=${sortType.includes('-') ? 'asc' : 'desc'}`;
     const search = searchValue ? `&search=${searchValue}` : '';
-
+    // @ts-ignore
     dispatch(fetchPizzas({ currentPage, category, sort, order, search }));
   };
 
