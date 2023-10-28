@@ -42,11 +42,7 @@ const cartSlice = createSlice({
         return;
       }
 
-      if (findItem.count === 1) {
-        state.items = state.items.filter((obj) => obj.id !== action.payload);
-      } else {
-        findItem.count--;
-      }
+      findItem.count--;
       state.totalPrice -= findItem.price;
     },
     removeProduct(state, action: PayloadAction<string>) {

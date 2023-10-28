@@ -193,6 +193,27 @@ body {
     padding-top: 30px;
     margin-top: 30px;
 
+    &--disabled {
+      border-color: #dddddd;
+
+      &:active {
+        transform: none;
+        background-color: transparent;
+      }
+
+      &:hover {
+        background-color: transparent;
+
+        svg path {
+          fill: #dddddd;
+        }
+      }
+
+      svg path {
+        fill: #dddddd;
+      }
+    }
+
     &-img {
       display: flex;
       align-items: center;
@@ -229,6 +250,7 @@ body {
       align-items: center;
       justify-content: space-between;
       width: 13%;
+
 
       &-minus {
         svg {
