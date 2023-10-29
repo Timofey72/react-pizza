@@ -1,6 +1,14 @@
 .root {
     position: relative;
     left: -100px;
+
+    @media (max-width: 1170px) {
+        margin-left: 100px;
+    }
+
+    @media (max-width: 941px) {
+        display: none;
+    }
 }
 
 .input {
@@ -11,6 +19,15 @@
     width: 400px;
     border-radius: 10px;
     font-size: 16px;
+
+    @media (max-width: 1300px) {
+        width: 300px;
+    }
+
+    @media (max-width: 1170px) {
+        width: 200px;
+    }
+
 }
 
 .icon {

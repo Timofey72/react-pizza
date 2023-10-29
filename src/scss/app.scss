@@ -124,6 +124,10 @@ body {
       margin: 0;
     }
   }
+
+  @media (max-width: 600px) {
+    margin: 10px auto;
+  }
 }
 
 .cart {
@@ -131,6 +135,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
   }
 
   .content__title {
@@ -178,6 +183,38 @@ body {
       }
       span {
         color: darken($color: #b6b6b6, $amount: 50);
+      }
+    }
+  }
+
+  @media (max-width: 430px) {
+    .content__title {
+      font-size: 26px;
+
+      svg {
+        width: 24px;
+      }
+    }
+
+    &__clear {
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media (max-width: 350px) {
+    .content__title {
+      font-size: 20px;
+
+      svg {
+        width: 20px;
+      }
+    }
+
+    &__clear {
+      span {
+        font-size: 10px;
       }
     }
   }
@@ -309,6 +346,71 @@ body {
         }
       }
     }
+
+    @media (max-width: 800px) {
+      &-count {
+        gap: 3px;
+      }
+
+      &-info {
+        margin-left: 20px;
+        width: 30%;
+      }
+    }
+
+    @media (max-width: 750px) {
+      flex-wrap: wrap;
+      &-img {
+        width: 20%;
+        margin: 0;
+      }
+
+      &-count,
+      &-price,
+      &-remove {
+        margin-top: 15px;
+      }
+
+      &-count {
+        z-index: 1;
+        width: 10%;
+        margin-top: 20px;
+      }
+
+      &-price {
+        width: 80%;
+      }
+
+      &-remove {
+        width: 10%;
+      }
+
+      &-info {
+        width: 80%;
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 550px) {
+      &-img {
+        width: 30%;
+      }
+
+      &-info {
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 350px) {
+      &-count {
+        margin-top: 15px;
+      }
+
+      &-price {
+        padding-left: 20px;
+      }
+
+    }
   }
 
   &__bottom {
@@ -325,6 +427,24 @@ body {
           b {
             color: $orange;
           }
+        }
+      }
+
+      @media (max-width: 600px) {
+        span {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 530px) {
+        span {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        span {
+          font-size: 15px;
         }
       }
     }
@@ -372,6 +492,48 @@ body {
         width: 210px;
         padding: 16px;
       }
+
+      @media (max-width: 600px) {
+        .button {
+          width: 180px;
+          // padding: 0 20px;
+          height: 60px;
+          
+        }
+      }
+
+      @media (max-width: 430px) {
+        .button {
+          width: 150px;
+          font-size: 14px;
+          height: 60px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .button {
+          width: 120px;
+          font-size: 10px;
+          height: 4;
+        }
+        .go-back-btn {
+          span {
+            content: "test";
+            visibility:visible;
+            margin-top: 5px;
+            margin-right: 10px;
+          }
+        }
+
+        .pay-btn {
+          span {
+            font-size: 14px;
+            margin-bottom: 10px;
+            position: relative;
+            top: -5px;
+          }
+        }
+      }
     }
   }
 
@@ -379,7 +541,7 @@ body {
     margin: 70px auto;
     width: 560px;
     text-align: center;
-
+  
     h2 {
       font-size: 36px;
       margin-bottom: 10px;
@@ -409,6 +571,63 @@ body {
       margin: 0 auto;
       font-weight: 600;
       font-size: 18px;
+    }
+
+    @media (max-width: 700px) {
+      width: 400px;
+      margin: 40px auto;
+  
+      h2 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+  
+      
+      img {
+        width: 250px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      width: 320px;
+      margin: 30px auto;
+  
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+  
+      
+      img {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      width: 280px;
+      margin: 10px auto;
+  
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+  
+      
+      img {
+        width: 180px;
+      }
+
+      .button--black {
+      }
     }
   }
 }
