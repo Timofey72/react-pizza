@@ -25,7 +25,14 @@ yarn-error.log*
 /react-pizza-html
 prettier.json
 /build
+
+# Django / Python #
 /.idea
 /venv
+*.log
+*.pot
+*.pyc
+__pycache__
 backend/.env
 backend/db.sqlite3
+media
