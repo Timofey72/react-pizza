@@ -5,6 +5,7 @@ import axios from 'axios';
 import NotFound from '../NotFound';
 
 import styles from './SinglePizza.module.scss';
+import Spinner from '../../components/Spinner/Spinner';
 
 const SinglePizza: React.FC = () => {
   const [pizza, setPizza] = useState<{
@@ -31,7 +32,7 @@ const SinglePizza: React.FC = () => {
   if (error) {
     return <NotFound />;
   } else if (!pizza) {
-    return;
+    return <Spinner />;
   }
 
   return (
