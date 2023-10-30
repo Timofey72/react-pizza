@@ -25,3 +25,7 @@ yarn-error.log*
 /react-pizza-html
 prettier.json
 /build
+/.idea
+/venv
+backend/.env
+backend/db.sqlite3
