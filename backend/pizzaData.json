@@ -1,0 +1,271 @@
+[
+{
+  "model": "api.pizzamodel",
+  "pk": 0,
+  "fields": {
+    "title": "Пепперони Фреш с перцем",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
+    "price": 803,
+    "category": 4,
+    "rating": 4,
+    "types": [
+      1,
+      2
+    ],
+    "sizes": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 1,
+  "fields": {
+    "title": "Сырная",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/2ffc31bb-132c-4c99-b894-53f7107a1441.jpg",
+    "price": 245,
+    "category": 2,
+    "rating": 6,
+    "types": [
+      1
+    ],
+    "sizes": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 2,
+  "fields": {
+    "title": "Цыпленок барбекю",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg",
+    "price": 295,
+    "category": 1,
+    "rating": 4,
+    "types": [
+      1
+    ],
+    "sizes": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 3,
+  "fields": {
+    "title": "Кисло-сладкий цыпленок",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/af553bf5-3887-4501-b88e-8f0f55229429.jpg",
+    "price": 275,
+    "category": 1,
+    "rating": 2,
+    "types": [
+      2
+    ],
+    "sizes": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 4,
+  "fields": {
+    "title": "Чизбургер-пицца",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
+    "price": 415,
+    "category": 3,
+    "rating": 8,
+    "types": [
+      1,
+      2
+    ],
+    "sizes": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 5,
+  "fields": {
+    "title": "Крэйзи пепперони",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/1e1a6e80-b3ba-4a44-b6b9-beae5b1fbf27.jpg",
+    "price": 580,
+    "category": 4,
+    "rating": 2,
+    "types": [
+      1
+    ],
+    "sizes": [
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 6,
+  "fields": {
+    "title": "Пепперони",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d2e337e9-e07a-4199-9cc1-501cc44cb8f8.jpg",
+    "price": 675,
+    "category": 1,
+    "rating": 9,
+    "types": [
+      1,
+      2
+    ],
+    "sizes": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 7,
+  "fields": {
+    "title": "Маргарита",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
+    "price": 450,
+    "category": 2,
+    "rating": 10,
+    "types": [
+      1,
+      2
+    ],
+    "sizes": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 8,
+  "fields": {
+    "title": "Четыре сезона",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/ec29465e-606b-4a04-a03e-da3940d37e0e.jpg",
+    "price": 395,
+    "category": 5,
+    "rating": 10,
+    "types": [
+      1,
+      2
+    ],
+    "sizes": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 9,
+  "fields": {
+    "title": "Овощи и грибы 🌱",
+    "image": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg",
+    "price": 285,
+    "category": 5,
+    "rating": 7,
+    "types": [
+      1,
+      2
+    ],
+    "sizes": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 10,
+  "fields": {
+    "title": "Пицца Жюльен",
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/f8bcc0d18f5a4817a720a159f0f8c37c_292x292.webp",
+    "price": 579,
+    "category": 5,
+    "rating": 8,
+    "types": [
+      1,
+      2
+    ],
+    "sizes": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzamodel",
+  "pk": 11,
+  "fields": {
+    "title": "Гавайская",
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/c24bb8e55baa4ca68945459ac6afdf3e_292x292.webp",
+    "price": 519,
+    "category": 3,
+    "rating": 7,
+    "types": [
+      1,
+      2
+    ],
+    "sizes": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "api.pizzatype",
+  "pk": 1,
+  "fields": {
+    "type_id": 0,
+    "name": "Тонкое"
+  }
+},
+{
+  "model": "api.pizzatype",
+  "pk": 2,
+  "fields": {
+    "type_id": 1,
+    "name": "Традиционное"
+  }
+},
+{
+  "model": "api.pizzasize",
+  "pk": 1,
+  "fields": {
+    "size": 26
+  }
+},
+{
+  "model": "api.pizzasize",
+  "pk": 2,
+  "fields": {
+    "size": 30
+  }
+},
+{
+  "model": "api.pizzasize",
+  "pk": 3,
+  "fields": {
+    "size": 40
+  }
+}
+]
