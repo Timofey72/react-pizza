@@ -31,3 +31,13 @@ python manage.py runserver
 
 Runs the app in the development mode.\
 Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
+
+#### Or use Docker
+
+In the project directory, you can run:
+
+```
+docker-compose up --build
+```
+
+Open [http://localhost](http://localhost) to view it in your browser.
