@@ -6,6 +6,7 @@ import NotFound from '../NotFound';
 
 import styles from './SinglePizza.module.scss';
 import Spinner from '../../components/Spinner/Spinner';
+import { API_URL } from '../../App';
 
 const SinglePizza: React.FC = () => {
   const [pizza, setPizza] = useState<{
@@ -19,7 +20,7 @@ const SinglePizza: React.FC = () => {
   useEffect(() => {
     async function getPizzaData() {
       try {
-        const { data } = await axios.get(`http://localhost:8000/api/v1/pizzas/${id}`);
+        const { data } = await axios.get(`${API_URL}/${id}`);
        setPizza(data.pizzas[0]);
       } catch (error) {
         isError(true);

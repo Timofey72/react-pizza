@@ -7,6 +7,8 @@ import MainLayout from './layouts/MainLayout';
 import './scss/app.scss';
 import Spinner from './components/Spinner/Spinner';
 
+export const API_URL = 'http://192.168.0.3:8000/api/v1/pizzas'
+
 const Cart = React.lazy(() => import(/* webpackChunkName: "Cart" */ './pages/Cart'));
 const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
 const SinglePizza = React.lazy(
