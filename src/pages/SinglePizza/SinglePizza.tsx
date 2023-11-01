@@ -9,7 +9,7 @@ import Spinner from '../../components/Spinner/Spinner';
 
 const SinglePizza: React.FC = () => {
   const [pizza, setPizza] = useState<{
-    imageUrl: string;
+    image: string;
     title: string;
     price: number;
   }>();
@@ -19,8 +19,8 @@ const SinglePizza: React.FC = () => {
   useEffect(() => {
     async function getPizzaData() {
       try {
-        const { data } = await axios.get(`https://65200797906e276284c3eccc.mockapi.io/items/${id}`);
-       setPizza(data);
+        const { data } = await axios.get(`http://localhost:8000/api/v1/pizzas/${id}`);
+       setPizza(data.pizzas[0]);
       } catch (error) {
         isError(true);
       }
@@ -37,7 +37,7 @@ const SinglePizza: React.FC = () => {
 
   return (
     <div className={`container ${styles.root}`}>
-      <img className={styles.image} src={pizza.imageUrl} alt={`pizza-${pizza.title}`} />
+      <img className={styles.image} src={pizza.image} alt={`pizza-${pizza.title}`} />
       <h2 className={styles.title}>{pizza.title}</h2>
       <h4 className={styles.price}>Цена: {pizza.price} ₽</h4>
       <Link to='/'>

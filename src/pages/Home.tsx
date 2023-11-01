@@ -22,10 +22,10 @@ const Home: React.FC = () => {
   const dispatch = useAppDispatch();
   const isMounted = useRef(false);
 
-  const { items, status } = useSelector(selectPizzaData);
+  const { count_page, items, status } = useSelector(selectPizzaData);
   const searchValue = useSelector(selectSearchValue);
-  const { categoryId, sort, currentPage } = useSelector(selectFilter);
-  const sortType = sort.sortProperty;
+  const { categoryId, ordering, currentPage } = useSelector(selectFilter);
+  const sortType = ordering.sortProperty;
 
   const skeletons = [...new Array(8)].map((_, i) => <PizzaSkeleton key={i} />);
   const pizzas = items.map((obj: any) => <PizzaBlock key={obj.id} {...obj} />);
@@ -41,24 +41,23 @@ const Home: React.FC = () => {
 
   const getPizzas = async () => {
     const category = categoryId !== 0 ? `&category=${categoryId}` : '';
-    const sort = `&sortBy=${sortType.replace('-', '')}`;
-    const order = `&order=${sortType.includes('-') ? 'asc' : 'desc'}`;
+    const ordering = `&ordering=${sortType}`;
     const search = searchValue ? `&search=${searchValue}` : '';
 
-    dispatch(fetchPizzas({ currentPage, category, sort, order, search }));
+    dispatch(fetchPizzas({ currentPage, category, ordering, search }));
   };
 
   useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1)) as unknown as SearchPizzaParams;
-      const sort = sortBy.find((obj) => obj.sortProperty === params.sort);
+      const ordering = sortBy.find((obj) => obj.sortProperty === params.ordering);
 
       dispatch(
         setFilters({
           searchValue: params.search,
           categoryId: Number(params.category),
           currentPage: params.currentPage,
-          sort: sort || sortBy[0],
+          ordering: ordering || sortBy[0],
         }),
       );
     }
@@ -85,7 +84,7 @@ const Home: React.FC = () => {
     <div className='container'>
       <div className='content__top'>
         <Categories category={categoryId} onClickCategory={onChangeCategory} />
-        <Sort sort={sort} />
+        <Sort sort={ordering} />
       </div>
       <h2 className='content__title'>Все пиццы</h2>
       {status === 'error' ? (
@@ -101,7 +100,7 @@ const Home: React.FC = () => {
         <div className='content__items'>{status === Status.LOADING ? skeletons : pizzas}</div>
       )}
 
-      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+      <Pagination count_page={count_page} currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
 };

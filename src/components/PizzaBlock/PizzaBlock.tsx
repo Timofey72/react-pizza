@@ -10,12 +10,12 @@ type PizzaBlockProps = {
   id: string;
   title: string;
   price: number;
-  imageUrl: string;
+  image: string;
   types: number[];
   sizes: number[];
 };
 
-const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, types, sizes }) => {
+const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, image, types, sizes }) => {
   const dispatch = useDispatch();
 
   const cartItem = useSelector(selectCartItemById(id));
@@ -31,7 +31,7 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, typ
       id,
       title,
       price,
-      imageUrl,
+      image,
       size: sizes[pizzaSize],
       type: pizzaTypes[pizzaType],
       count: 0,
@@ -44,7 +44,7 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, typ
     <div className='pizza-block-wrapper'>
       <div className='pizza-block'>
         <Link to={`/pizza/${id}`}>
-          <img className='pizza-block__image' src={imageUrl} alt='Pizza' />
+          <img className='pizza-block__image' src={image} alt='Pizza' />
         </Link>
         <h4 className='pizza-block__title'>{title}</h4>
         <div className='pizza-block__selector'>

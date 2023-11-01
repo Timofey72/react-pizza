@@ -5,7 +5,7 @@ services:
     volumes:
       - static:/static
     env_file:
-      - ./backend/.env
+      - ./backend/.env.prod
     build:
       context: ./backend
     ports:

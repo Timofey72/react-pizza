@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setSort } from '../redux/filter/slice';
+import { setOrdering } from '../redux/filter/slice';
 import { Sort, SortPropertyEnum } from '../redux/filter/types';
 
 type SortItem = {
@@ -30,7 +30,7 @@ const SortPopup: React.FC<SortPopupProps> = React.memo(({ sort }) => {
   const [open, setOpen] = useState(false);
 
   const changeSort = (obj: SortItem) => {
-    dispatch(setSort(obj));
+    dispatch(setOrdering(obj));
     setOpen(false);
   };
 

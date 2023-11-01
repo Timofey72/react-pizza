@@ -8,11 +8,15 @@ export type PizzaItem = {
   rating: number;
 };
 
+export type PizzaData = {
+  pizzas: PizzaItem[];
+  count_page: number;
+}
+
 export type SearchPizzaParams = {
   currentPage: number;
   category: string;
-  sort: string;
-  order: string;
+  ordering: string;
   search: string;
 };
 
@@ -24,5 +28,6 @@ export enum Status {
 
 export interface PizzaSliceState {
   items: PizzaItem[];
+  count_page: number,
   status: Status;
 }

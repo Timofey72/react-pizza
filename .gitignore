@@ -34,5 +34,6 @@ prettier.json
 *.pyc
 __pycache__
 backend/.env
+backend/.env.prod
 backend/db.sqlite3
 media

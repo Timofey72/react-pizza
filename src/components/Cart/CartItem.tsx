@@ -10,10 +10,10 @@ type CartItemProps = {
   size: number;
   price: number;
   count: number;
-  imageUrl: string;
+  image: string;
 };
 
-const CartItem: React.FC<CartItemProps> = ({ id, title, type, size, price, count, imageUrl }) => {
+const CartItem: React.FC<CartItemProps> = ({ id, title, type, size, price, count, image }) => {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
@@ -31,7 +31,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, type, size, price, count
   return (
     <div className='cart__item'>
       <div className='cart__item-img'>
-        <img className='pizza-block__image' src={imageUrl} alt='Pizza' />
+        <img className='pizza-block__image' src={image} alt='Pizza' />
       </div>
       <div className='cart__item-info'>
         <h3>{title}</h3>
