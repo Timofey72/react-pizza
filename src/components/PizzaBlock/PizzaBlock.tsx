@@ -72,7 +72,7 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, image, types,
         </div>
         <div className='pizza-block__bottom'>
           <div className='pizza-block__price'>от {price} ₽</div>
-          <button onClick={onClickAdd} className='button button--outline button--add'>
+          <button onClick={pizzaCount >= 99 ? () => {} : onClickAdd} className={'button button--outline button--add ' + (pizzaCount >= 99 ? 'button--add-disabled' : '')}>
             <svg
               width='12'
               height='12'
