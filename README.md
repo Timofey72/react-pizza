@@ -9,6 +9,8 @@ This is a pizza site. Developed with React and Django
 In the project directory, you can run:
 
 ```
+cd frontend
+
 npm i
 npm start
 ```
@@ -21,8 +23,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 In the project directory, you can run:
 
 ```
-pip install -r requirements.txt
 cd backend
+
+pip install -r requirements.txt
 
 python manage.py migrate
 python manage.py loaddata pizzaData.json

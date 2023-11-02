@@ -7,7 +7,14 @@ import MainLayout from './layouts/MainLayout';
 import './scss/app.scss';
 import Spinner from './components/Spinner/Spinner';
 
-export const API_URL = `http://${process.env.REACT_APP_API_IP}:8000/api/v1/pizzas`
+
+let API_IP = process.env.REACT_APP_API_IP
+if (!API_IP) {
+  API_IP = '127.0.0.1'
+}
+
+export const API_URL = `http://${API_IP}:8000/api/v1/pizzas`
+
 
 const Cart = React.lazy(() => import(/* webpackChunkName: "Cart" */ './pages/Cart'));
 const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
