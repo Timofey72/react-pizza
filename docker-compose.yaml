@@ -2,8 +2,6 @@ version: '3.7'
 
 services:
   backend:
-    volumes:
-      - static:/static
     env_file:
       - ./backend/.env.prod
     build:
@@ -21,8 +19,7 @@ services:
     build:
       context: ./nginx
     volumes:
-      - static:/static
-      - frontend:/var/www/frontend
+      - frontend:/app
     ports:
       - "80:80"
     depends_on:
@@ -30,5 +27,4 @@ services:
       - frontend
 
 volumes:
-  static:
   frontend:

@@ -39,4 +39,5 @@ __pycache__
 backend/.env
 backend/.env.prod
 backend/db.sqlite3
+backend/staticfiles
 media
